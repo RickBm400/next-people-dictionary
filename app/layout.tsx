@@ -1,9 +1,6 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "People Dictionary",
-  description: "Created by RickBm20",
-};
+"use client";
+import React from "react";
+import "@/sass/global.sass";
 
 export default function RootLayout({
   children,

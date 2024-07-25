@@ -1,0 +1,20 @@
+$cont_width: 100vw
+$cont_height: 100vh
+$global_padding: 20px
+$nav_height: 50px
+#landing
+    width: $cont_width
+    height: $cont_height
+.landing
+    &__nav
+        height: $nav_height
+        width: calc( $cont_width - $global_padding )
+        &__links
+            list-style: none
+            li
+                margin-inline: 10px
+    &__container
+        width: calc( $cont_width - $global_padding )
+        height: calc($cont_height - $global_padding - $nav_height)
+        background: url("../public/images/coworking.jpg") no-repeat
+        background-size: cover
