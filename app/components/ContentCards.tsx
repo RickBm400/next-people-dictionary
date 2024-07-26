@@ -1,7 +1,11 @@
 import { Card, CardContent } from "@mui/material";
-export default function ContentCard() {
+interface props {
+  classItems: string;
+}
+
+export default function ContentCard({ classItems }: props) {
   return (
-    <Card sx={{ height: "100%" }}>
+    <Card className={`bg-[#bdc2d0] ${classItems}`}>
       <CardContent>olamundos</CardContent>
     </Card>
   );
