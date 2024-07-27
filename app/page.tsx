@@ -1,6 +1,5 @@
 "use client";
 import "./landing.sass";
-import Grid from "@mui/material/Unstable_Grid2";
 import ContentCards from "@/components/ContentCards";
 import LoginCards from "./components/LogIn";
 
@@ -36,13 +35,13 @@ export default function Home() {
           {[1, 2, 3].map((numer) => (
             <ContentCards
               key={numer}
-              classItems={"flex-1 rounded-[12px] h-[80%]"}
+              className={"flex-1 rounded-[12px] h-[80%]"}
             ></ContentCards>
           ))}
         </div>
       </section>
       <section id="logins" className="flex justify-center items-center">
-        <div className="logins__cards flex w-full  space-x-6 p-4 mb-16">
+        <div className="logins__cards flex w-full  space-x-6 ">
           {[1, 2].map((cardId) => (
             <LoginCards key={cardId} />
           ))}
