@@ -21,23 +21,23 @@ export default function Home() {
         <div className="landing__container p-[24px] rounded-[24px]">
           <div className="-title rounded-tr-[24px]">
             <h1>COWORKING SPACE</h1>
-            <div className="-corners-1"></div>
-            <div className="-corners-2"></div>
-            <div className="-corners-3"></div>
-            {/* <svg width={"20px"} height={"20px"} className="-corners">
-              <rect width={"20px"} height={"20px"} fill="red"></rect>
-            </svg> */}
+            <div className="-corners-1" />
+            <div className="-corners-2" />
           </div>
         </div>
       </section>
-      <section id="about" className="flex space-x-16 ">
-        <div className="about__description flex flex-col ">
-          <h2 className="mb-auto">Olamundos</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam sit
-            praesentium facere soluta possimus minus ut? Et quibusdam ratione,
-            dignissimos sequi pariatur dolor vitae nemo similique delectus,
-            adipisci molestias consequuntur!
+      <section id="about" className="flex space-x-16 items-end">
+        <div className="about__info flex flex-col">
+          <h2 className="about__info-title mb-auto">ABOUT</h2>
+          <p className="about__info-content">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit minus
+            incidunt magni eos saepe ab possimus aspernatur, quam ad similique
+            asperiores perspiciatis laborum repellat officia. Fuga omnis itaque
+            ipsa quidem. <br /> <br />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus impedit culpa, aspernatur ratione quas vel, repellat,
+            expedita possimus ducimus quis omnis voluptate. Odit atque quis qui
+            molestias, natus accusamus! Eos?
           </p>
         </div>
         <div className="about__scroller flex space-x-6 items-end ">
