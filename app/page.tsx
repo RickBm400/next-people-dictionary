@@ -1,6 +1,7 @@
 "use client";
 import "./landing.sass";
 import ContentCards from "@/components/ContentCards";
+import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import LoginCards from "./components/LogIn";
 
 export default function Home() {
@@ -18,7 +19,9 @@ export default function Home() {
           </ul>
         </nav>
         <div className="landing__container p-[24px] rounded-[12px]">
-          <h1>COWORKING SPACE</h1>
+          <div className="-title rounded-[12px]">
+            <h1>COWORKING SPACE</h1>
+          </div>
         </div>
       </section>
       <section id="about" className="flex space-x-16 ">
@@ -35,7 +38,7 @@ export default function Home() {
           {[1, 2, 3].map((numer) => (
             <ContentCards
               key={numer}
-              className={"flex-1 rounded-[12px] h-[80%]"}
+              className={"flex-1 rounded-[12px] h-[100%]"}
             ></ContentCards>
           ))}
         </div>

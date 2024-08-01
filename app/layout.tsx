@@ -11,3 +11,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// buscar ejemplos en el repo de jest carpeta ejemplos

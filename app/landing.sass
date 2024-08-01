@@ -19,6 +19,15 @@ $nav_height: 48px
         height: calc($cont_height - $nav_height)
         background: url("../public/images/coworking.jpg") no-repeat
         background-size: cover
+        .-title
+            background-color: white
+            position: absolute
+            bottom: 12px
+            left: 12px
+            padding-inline: 24px
+            padding-block: 12px
+            h1
+                font-size: 5rem
 #about
     height: $cont_height
     padding: 64px
@@ -31,10 +40,11 @@ $nav_height: 48px
         height: 100%
 
 #logins
-    padding-inline: $global_padding
+    height: $cont_height
+    padding: 64px
 .logins
     &__cards
-        height: 700px
+        height: 100%
 
 #footer
     height: 18rem
