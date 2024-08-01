@@ -18,9 +18,15 @@ export default function Home() {
             <li>Contacts</li>
           </ul>
         </nav>
-        <div className="landing__container p-[24px] rounded-[12px]">
-          <div className="-title rounded-[12px]">
+        <div className="landing__container p-[24px] rounded-[24px]">
+          <div className="-title rounded-tr-[24px]">
             <h1>COWORKING SPACE</h1>
+            <div className="-corners-1"></div>
+            <div className="-corners-2"></div>
+            <div className="-corners-3"></div>
+            {/* <svg width={"20px"} height={"20px"} className="-corners">
+              <rect width={"20px"} height={"20px"} fill="red"></rect>
+            </svg> */}
           </div>
         </div>
       </section>
