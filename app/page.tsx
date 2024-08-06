@@ -1,5 +1,6 @@
 "use client";
 import "./landing.sass";
+import { michroma, inter } from "./utils/font";
 import ContentCards from "@/components/ContentCards";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import LoginCards from "./components/LogIn";
@@ -20,16 +21,18 @@ export default function Home() {
         </nav>
         <div className="landing__container p-[24px] rounded-[24px]">
           <div className="-title rounded-tr-[24px]">
-            <h1>COWORKING SPACE</h1>
+            <h1 className={michroma.className}>COWORKING SPACE</h1>
             <div className="-corners-1" />
             <div className="-corners-2" />
           </div>
         </div>
       </section>
-      <section id="about" className="flex space-x-16 items-end">
+      <section id="about" className="flex space-x-16 items-center">
         <div className="about__info flex flex-col">
-          <h2 className="about__info-title mb-auto">ABOUT</h2>
-          <p className="about__info-content">
+          <h2 className={`about__info--title mb-auto ${michroma.className}`}>
+            ABOUT
+          </h2>
+          <p className="about__info--content">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit minus
             incidunt magni eos saepe ab possimus aspernatur, quam ad similique
             asperiores perspiciatis laborum repellat officia. Fuga omnis itaque
@@ -49,10 +52,23 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section id="logins" className="flex justify-center items-center">
-        <div className="logins__cards flex w-full  space-x-6 ">
-          {[1, 2].map((cardId) => (
-            <LoginCards key={cardId} />
+      <section id="logins" className="flex flex-col">
+        <div className="logins__header pb-9">
+          <h2 className={`logins__header--title ${michroma.className}`}>
+            READY TO JOIN US?{" "}
+          </h2>
+          <p
+            className={`logins__header--description ${inter.className} w-[60%]`}
+          >
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quasi
+            cum libero voluptates modi odio eligendi delectus quas laborum
+            dolorum dicta ab voluptatum molestias aperiam, cupiditate quia omnis
+            optio iste.
+          </p>
+        </div>
+        <div className="logins__cards h-full flex space-x-6">
+          {["member", "organization"].map((cardId) => (
+            <LoginCards key={cardId} user={cardId} />
           ))}
         </div>
       </section>
