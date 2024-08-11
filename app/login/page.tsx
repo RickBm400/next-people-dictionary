@@ -10,18 +10,19 @@ import {
   InputAdornment,
 } from "@mui/material";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
-import { useState } from "react";
+import React, { useState } from "react";
+import TexFieldComps from "globalComponents/textField";
 import "./login.sass";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmail = (event: any) => {
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const handlePassword = (event: any) => {
+  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
@@ -35,20 +36,18 @@ export default function Login() {
           <Box component="form" noValidate autoComplete="off">
             <TextField
               label="Email"
-              id="email"
+              name="email"
               type="email"
               variant="outlined"
               value={email}
               onChange={handleEmail}
             />
-            <TextField
-              label="Password"
-              id="email"
-              type="password"
-              variant="outlined"
+            <TexFieldComps
               value={password}
-              onChange={handlePassword}
-            ></TextField>
+              label="Password"
+              type="password"
+              handler={handlePassword}
+            ></TexFieldComps>
           </Box>
         </div>
       </section>
