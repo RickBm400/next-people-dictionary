@@ -1,3 +1,11 @@
+@mixin corners()
+    content: ''
+    width: 40px
+    height: 40px
+    background-color: transparent
+    position: absolute
+    box-shadow: -16px 16px 0 #ffffff
+
 .login
     padding-inline: 128px
     padding-block: 64px
@@ -6,7 +14,26 @@
         &-background
             border-radius: 24px
             padding: 48px
+            position: relative
             background-color: gray
+            &-title
+                background-color: white
+                padding: 0 60px 0 0
+                font-size: 7rem
+                position: absolute
+                bottom: 0px
+                left: 0px
+                border-top-right-radius: 24px
+                .corner-1
+                    @include corners()
+                    top: -40px
+                    left: 0
+                    border-bottom-left-radius: 24px
+                .corner-2
+                    @include corners()
+                    right: -40px
+                    bottom: 0
+                    border-bottom-left-radius: 24px
     &__form
         &-div
             padding: 48px

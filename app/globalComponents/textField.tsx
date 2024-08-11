@@ -4,6 +4,7 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
+import { inter, michroma } from "@/utils/font";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import React, { useState } from "react";
 
@@ -63,7 +64,7 @@ export default function TextFieldComp({
   const [passwordEye, setPasswordEye] = useState(false);
 
   return (
-    <FormControl variant={`${variant}`}>
+    <FormControl variant={`${variant}`} fullWidth>
       <TextField
         id={`outline-adornment-${label}`}
         type={passwordEye ? `${type}` : ""}
