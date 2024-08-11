@@ -18,10 +18,10 @@ export default function Home() {
             <li>About</li>
             <li>Contacts</li>
             <Button
-              size="small"
-              variant="outlined"
+              variant="text"
               disableElevation
               disableRipple
+              className={`capitalize ${inter.className}`}
               href="/login"
             >
               login

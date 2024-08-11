@@ -36,7 +36,7 @@ export default function Login() {
       <section className="login__form w-[40%] h-screen grid  bg-white">
         <div className="login__form-div flex items-center justify-center">
           <Box component="form" noValidate autoComplete="off">
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TexFieldComps
                   value={email}
@@ -59,10 +59,18 @@ export default function Login() {
                   variant="contained"
                   disableElevation
                   className={`${inter.className} capitalize font-[700]`}
-                  style={{ fontWeight: "800" }}
+                  style={{ fontWeight: "800", backgroundColor: "#cccccc" }}
                 >
                   Login
                 </Button>
+              </Grid>
+              <Grid item xs={12} className="flex justify-between">
+                <a href="" className={`${inter.className} link`}>
+                  Create an Account
+                </a>
+                <a href="" className={`${inter.className} link`}>
+                  Forgot Password?
+                </a>
               </Grid>
             </Grid>
           </Box>
