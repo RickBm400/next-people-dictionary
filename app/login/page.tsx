@@ -1,15 +1,5 @@
 "use client";
-import {
-  Card,
-  Box,
-  TextField,
-  Button,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  InputAdornment,
-} from "@mui/material";
-import { VisibilityOff, Visibility } from "@mui/icons-material";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import TexFieldComps from "globalComponents/textField";
 import "./login.sass";
