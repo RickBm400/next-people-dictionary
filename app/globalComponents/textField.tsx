@@ -1,13 +1,13 @@
 import {
   FormControl,
   TextField,
-  InputLabel,
-  OutlinedInput,
   InputAdornment,
   IconButton,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import React, { useState } from "react";
 
+// props object interface structure
 interface props {
   value: string;
   label: String;
@@ -16,20 +16,42 @@ interface props {
   variant?: "standard" | "outlined" | "filled";
 }
 
-function adornment(type: string) {
+// eye button end adornment
+function eyeButton(
+  type: string,
+  iconSwitch: boolean,
+  handler: React.MouseEventHandler<HTMLButtonElement>
+) {
+  // prevent button event default
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
+
+  // checks if field is password
   if (type == "password") {
     return (
       <>
         <InputAdornment position="end">
-          <IconButton aria-label="toggle password visibility" edge="end">
-            {true ? <VisibilityOff /> : <Visibility />}
+          <IconButton
+            onMouseDown={handleMouseDownPassword}
+            aria-label="toggle password visibility"
+            edge="end"
+            onClick={handler}
+          >
+            {iconSwitch ? <VisibilityOff /> : <Visibility />}
           </IconButton>
         </InputAdornment>
+        {iconSwitch}
       </>
     );
   }
+
+  return null;
 }
 
+// main component
 export default function TextFieldComp({
   value,
   label,
@@ -37,17 +59,22 @@ export default function TextFieldComp({
   handler,
   variant = "outlined",
 }: props) {
+  //password eye switch
+  const [passwordEye, setPasswordEye] = useState(false);
+
   return (
     <FormControl variant={`${variant}`}>
       <TextField
         id={`outline-adornment-${label}`}
-        type={`${type}`}
+        type={passwordEye ? `${type}` : ""}
         label={`${label}`}
         variant={`${variant}`}
         value={value}
         onChange={handler}
         InputProps={{
-          endAdornment: adornment(type),
+          endAdornment: eyeButton(type, passwordEye, () =>
+            setPasswordEye((val) => !val)
+          ),
         }}
       ></TextField>
     </FormControl>

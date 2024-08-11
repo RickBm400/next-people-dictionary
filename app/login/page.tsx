@@ -34,14 +34,12 @@ export default function Login() {
       <section className="login__form w-[40%] h-screen grid  bg-white">
         <div className="login__form-div">
           <Box component="form" noValidate autoComplete="off">
-            <TextField
-              label="Email"
-              name="email"
-              type="email"
-              variant="outlined"
+            <TexFieldComps
               value={email}
-              onChange={handleEmail}
-            />
+              label="email"
+              type="email"
+              handler={handleEmail}
+            ></TexFieldComps>
             <TexFieldComps
               value={password}
               label="Password"
