@@ -41,7 +41,7 @@ function eyeButton(
             edge="end"
             onClick={handler}
           >
-            {iconSwitch ? <VisibilityOff /> : <Visibility />}
+            {iconSwitch ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </InputAdornment>
         {iconSwitch}
