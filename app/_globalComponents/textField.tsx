@@ -67,7 +67,7 @@ export default function TextFieldComp({
     <FormControl variant={`${variant}`} fullWidth>
       <TextField
         id={`outline-adornment-${label}`}
-        type={passwordEye ? `${type}` : ""}
+        type={!passwordEye ? `${type}` : ""}
         label={`${label}`}
         variant={`${variant}`}
         value={value}
