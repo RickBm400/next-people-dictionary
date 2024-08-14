@@ -19,7 +19,7 @@
     ],
     "paths": {
       "@/*": ["./app/*"],
-      "globalComponents/*":["./app/globalComponents/*"],
+      "globalComponents/*":["./app/_globalComponents/*"],
       "public/*": ["./public"]
     }
   },
