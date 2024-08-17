@@ -24,29 +24,30 @@ $nav_height: 48px
                 margin-inline: 10px
     &__container
         width: 100%
-        height: calc($cont_height - $nav_height)
-        background: url("../public/images/coworking.jpg") no-repeat
+        height: calc($cont_height)
+        background: url("../public/images/coworking-image.png") no-repeat
         background-size: cover
+        position: relative
         .-title
             background-color: white
             position: absolute
-            bottom: 12px
-            left: 12px
+            bottom: 0px
+            left: 0px
             padding-inline: 24px
             padding-block: 12px
         .-corners
-            &-1
-                @include corners()
-                top: -40px
-                left: 0
-                border-bottom-left-radius: 24px
-            &-2
-                @include corners()
-                bottom: 0
-                right: -40px
-                border-bottom-left-radius: 24px
+            // &-1
+            //     @include corners()
+            //     top: -40px
+            //     left: 0
+            //     border-bottom-left-radius: 24px
+            // &-2
+            //     @include corners()
+            //     bottom: 0
+            //     right: -40px
+            //     border-bottom-left-radius: 24px
         h1
-            font-size: 5rem
+            font-size: 6rem
             font-weight: bolder
 #about
     height: $cont_height

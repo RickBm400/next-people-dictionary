@@ -12,25 +12,37 @@ export default function Home() {
         id="landing"
         className="flex justify-center flex-col items-center"
       >
-        <nav className="landing__nav flex justify-end items-center">
-          <ul className="landing__nav__links flex items-center">
-            <li>Home</li>
-            <li>About</li>
-            <li>Contacts</li>
-            <Button
-              variant="text"
-              disableElevation
-              disableRipple
-              className={`capitalize ${inter.className}`}
-              href="/login"
-            >
-              login
-            </Button>
-          </ul>
-        </nav>
-        <div className="landing__container p-[24px] rounded-[24px]">
-          <div className="-title rounded-tr-[24px]">
-            <h1 className={michroma.className}>COWORKING SPACE</h1>
+        {false && (
+          <nav className="landing__nav flex justify-end items-center">
+            <ul className="landing__nav__links flex items-center">
+              <li>Home</li>
+              <li>About</li>
+              <li>Contacts</li>
+              <Button
+                variant="text"
+                disableElevation
+                disableRipple
+                className={`capitalize ${inter.className}`}
+                href="/login"
+              >
+                login
+              </Button>
+            </ul>
+          </nav>
+        )}
+        <div className="landing__container p-[24px] ">
+          <nav className="landing__container-nav">
+            <ul className="flex space-x-4 items-center justify-end">
+              <li className="cursor-pointer">Home</li>
+              <li className="cursor-pointer">About</li>
+              <li className="cursor-pointer">Contacts</li>
+              <a href="/login">
+                <li className="cursor-pointer">Login</li>
+              </a>
+            </ul>
+          </nav>
+          <div className="-title">
+            <h1 className={michroma.className}>Coworking Net //</h1>
             <div className="-corners-1" />
             <div className="-corners-2" />
           </div>

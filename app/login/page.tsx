@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Box, Grid, Button } from "@mui/material";
 import { michroma, inter } from "@/utils/font";
-import TexFieldComps from "globalComponents/textField";
+import TexFieldComps from "@/_globalComponents/textField";
 import "./login.sass";
 
 export default function Login() {
@@ -35,25 +35,27 @@ export default function Login() {
       </section>
       <section className="login__form w-[40%] h-screen grid  bg-white">
         <div className="login__form-div flex items-center justify-center">
-          <Box component="form" noValidate autoComplete="off">
+          <Box>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid
+                component="form"
+                autoComplete="off"
+                item
+                xs={12}
+                className="space-y-6"
+              >
                 <TexFieldComps
                   value={email}
                   label="email"
                   type="email"
                   handler={handleEmail}
                 ></TexFieldComps>
-              </Grid>
-              <Grid item xs={12}>
                 <TexFieldComps
                   value={password}
                   label="Password"
                   type="password"
                   handler={handlePassword}
                 ></TexFieldComps>
-              </Grid>
-              <Grid item xs={12}>
                 <Button
                   fullWidth
                   variant="contained"
@@ -63,14 +65,14 @@ export default function Login() {
                 >
                   Login
                 </Button>
-              </Grid>
-              <Grid item xs={12} className="flex justify-between">
-                <a href="" className={`${inter.className} link`}>
-                  Create an Account
-                </a>
-                <a href="" className={`${inter.className} link`}>
-                  Forgot Password?
-                </a>
+                <div className="flex justify-between">
+                  <a href="" className={`${inter.className} link`}>
+                    Create an Account
+                  </a>
+                  <a href="" className={`${inter.className} link`}>
+                    Forgot password?
+                  </a>
+                </div>
               </Grid>
             </Grid>
           </Box>
