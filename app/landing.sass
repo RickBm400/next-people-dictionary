@@ -15,13 +15,6 @@ $nav_height: 48px
     padding: $global_padding
     height: $cont_height
 .landing
-    &__nav
-        width: 100%
-        height: $nav_height
-        &__links
-            list-style: none
-            li
-                margin-inline: 10px
     &__container
         width: 100%
         height: calc($cont_height)
@@ -31,24 +24,32 @@ $nav_height: 48px
         .-title
             background-color: white
             position: absolute
-            bottom: 0px
+            top: 0px
             left: 0px
-            padding-inline: 24px
-            padding-block: 12px
-        .-corners
-            // &-1
-            //     @include corners()
-            //     top: -40px
-            //     left: 0
-            //     border-bottom-left-radius: 24px
-            // &-2
-            //     @include corners()
-            //     bottom: 0
-            //     right: -40px
-            //     border-bottom-left-radius: 24px
+        .-description
+            position: absolute
+            bottom: 30px
+            right: 40px
+            width: 400px
+            font-size: 14px
+            color: white
+            text-align: end
+        &-nav
+            position: absolute
+            top: 0px
+            right: 0px
+            padding: 15px 30px
+            background-color: #ffffff
+            ul
+                li
+                    color: #12150e
+                    font-size: 14px
+                    opacity: .8
+                    font-weight: 600
         h1
-            font-size: 6rem
-            font-weight: bolder
+            font-size: 7rem
+            line-height: 100px
+            text-transform: capitalize
 #about
     height: $cont_height
     padding: 128px

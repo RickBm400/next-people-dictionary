@@ -2,6 +2,7 @@
 import "./landing.sass";
 import { michroma, inter } from "./utils/font";
 import ContentCards from "@/components/ContentCards";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Button } from "@mui/material";
 import LoginCards from "./components/LogIn";
 
@@ -12,46 +13,39 @@ export default function Home() {
         id="landing"
         className="flex justify-center flex-col items-center"
       >
-        {false && (
-          <nav className="landing__nav flex justify-end items-center">
-            <ul className="landing__nav__links flex items-center">
-              <li>Home</li>
-              <li>About</li>
-              <li>Contacts</li>
-              <Button
-                variant="text"
-                disableElevation
-                disableRipple
-                className={`capitalize ${inter.className}`}
-                href="/login"
-              >
-                login
-              </Button>
-            </ul>
-          </nav>
-        )}
-        <div className="landing__container p-[24px] ">
-          <nav className="landing__container-nav">
-            <ul className="flex space-x-4 items-center justify-end">
+        <div className="landing__container">
+          <nav className="landing__container-nav flex items-center justify-end">
+            <ul
+              className={`flex space-x-8 items-center justify-end ${michroma.className}`}
+            >
               <li className="cursor-pointer">Home</li>
               <li className="cursor-pointer">About</li>
               <li className="cursor-pointer">Contacts</li>
-              <a href="/login">
-                <li className="cursor-pointer">Login</li>
-              </a>
+              {/* <a href="/login">
+                <AccountCircleIcon
+                  fontSize="medium"
+                  sx={{ color: "#12150e", opacity: ".8" }}
+                />
+              </a> */}
             </ul>
           </nav>
-          <div className="-title">
-            <h1 className={michroma.className}>Coworking Net //</h1>
-            <div className="-corners-1" />
-            <div className="-corners-2" />
+          <div className="-title pt-2 pb-10 px-8">
+            <h1 className={michroma.className}>Coworking</h1>
+            {/* <div className="-corners-1" />
+            <div className="-corners-2" /> */}
+          </div>
+          <div className="-description">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit sed
+            officia, consequuntur totam nulla, eaque at quidem dolorum quae,
+            consequatur voluptatum quo omnis ut esse consectetur itaque amet
+            maiores blanditiis?
           </div>
         </div>
       </section>
       <section id="about" className="flex space-x-16 items-center">
         <div className="about__info flex flex-col">
           <h2 className={`about__info--title mb-auto ${michroma.className}`}>
-            ABOUT
+            About
           </h2>
           <p className="about__info--content">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit minus

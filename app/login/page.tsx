@@ -17,6 +17,13 @@ export default function Login() {
     setPassword(event.target.value);
   };
 
+  async function _login() {
+    try {
+    } catch (error) {
+      console.log();
+    }
+  }
+
   return (
     <main id="login" className="flex h-[100vh]">
       <section className="login__info w-[60%] h-screen grid ">
@@ -60,6 +67,7 @@ export default function Login() {
                   fullWidth
                   variant="contained"
                   disableElevation
+                  onClick={_login}
                   className={`${inter.className} capitalize font-[700]`}
                   style={{ fontWeight: "800", backgroundColor: "#cccccc" }}
                 >
