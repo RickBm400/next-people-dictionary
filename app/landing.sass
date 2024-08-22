@@ -3,13 +3,13 @@ $cont_height: 100vh
 $global_padding: 12px
 $nav_height: 48px
 
-@mixin corners()
+@mixin corners($box-x, $box-y)
     content: ''
     width: 40px
     height: 40px
     background-color: transparent
     position: absolute
-    box-shadow: -16px 16px 0 #ffffff
+    box-shadow: $box-x $box-y 0 #ffffff
 
 #landing
     padding: $global_padding
@@ -20,36 +20,27 @@ $nav_height: 48px
         height: calc($cont_height)
         background: url("../public/images/coworking-image.png") no-repeat
         background-size: cover
-        position: relative
+        border-radius: 24px
         .-title
+            display: inline-block
             background-color: white
-            position: absolute
-            top: 0px
-            left: 0px
-        .-description
-            position: absolute
-            bottom: 30px
-            right: 40px
-            width: 400px
-            font-size: 14px
-            color: white
-            text-align: end
-        &-nav
-            position: absolute
-            top: 0px
-            right: 0px
-            padding: 15px 30px
-            background-color: #ffffff
-            ul
-                li
-                    color: #12150e
-                    font-size: 14px
-                    opacity: .8
-                    font-weight: 600
-        h1
-            font-size: 7rem
-            line-height: 100px
-            text-transform: capitalize
+            position: relative
+            border-bottom-right-radius: 24px
+            width: auto
+            h1
+                font-size: 7rem
+                line-height: 100px
+                text-transform: capitalize
+            .corners-1
+                @include corners(-20px, -20px)
+                top: 0
+                right: -40px
+                border-top-left-radius: 24px
+            .corners-2
+                @include corners(-20px, -20px)
+                bottom: -40px
+                left: 0
+                border-top-left-radius: 24px
 #about
     height: $cont_height
     padding: 128px

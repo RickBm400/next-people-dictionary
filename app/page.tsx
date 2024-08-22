@@ -3,6 +3,7 @@ import "./landing.sass";
 import { michroma, inter } from "./utils/font";
 import ContentCards from "@/components/ContentCards";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Button } from "@mui/material";
 import LoginCards from "./components/LogIn";
 
@@ -14,31 +15,10 @@ export default function Home() {
         className="flex justify-center flex-col items-center"
       >
         <div className="landing__container">
-          <nav className="landing__container-nav flex items-center justify-end">
-            <ul
-              className={`flex space-x-8 items-center justify-end ${michroma.className}`}
-            >
-              <li className="cursor-pointer">Home</li>
-              <li className="cursor-pointer">About</li>
-              <li className="cursor-pointer">Contacts</li>
-              {/* <a href="/login">
-                <AccountCircleIcon
-                  fontSize="medium"
-                  sx={{ color: "#12150e", opacity: ".8" }}
-                />
-              </a> */}
-            </ul>
-          </nav>
-          <div className="-title pt-2 pb-10 px-8">
+          <div className="-title pt-2 pb-10 pl-2 pr-8">
             <h1 className={michroma.className}>Coworking</h1>
-            {/* <div className="-corners-1" />
-            <div className="-corners-2" /> */}
-          </div>
-          <div className="-description">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit sed
-            officia, consequuntur totam nulla, eaque at quidem dolorum quae,
-            consequatur voluptatum quo omnis ut esse consectetur itaque amet
-            maiores blanditiis?
+            <div className="corners-1" />
+            <div className="corners-2" />
           </div>
         </div>
       </section>
