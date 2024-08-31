@@ -4,31 +4,42 @@ import { michroma, inter } from "./utils/font";
 import ContentCards from "@/components/ContentCards";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
+import Image from "next/image";
 import { Button } from "@mui/material";
 import LoginCards from "./components/LogIn";
 
 export default function Home() {
   return (
-    <main id="home-page">
+    <main id="home-page" className={`${inter.className}`}>
       <section
         id="landing"
         className="flex justify-center flex-col items-center"
       >
-        <div className="landing__container">
+        <Image
+          className="landing__background"
+          src="/images/coworking-image.png"
+          alt="coworking"
+          objectFit="cover"
+          quality={100}
+          layout="fill"
+          style={{ zIndex: -1 }}
+        />
+
+        <div className="landing__content">
           <div className="-title pt-2 pb-10 pl-2 pr-8">
             <h1 className={michroma.className}>Cowork</h1>
             <div className="corners-1" />
             <div className="corners-2" />
           </div>
 
-          <div className="-nav flex items-center">
+          <nav className="-nav flex items-center">
             <ul className="flex space-x-16 items-center">
               <li>Home</li>
               <li>About</li>
               <li>Contact</li>
             </ul>
             <Button className="capitalize ml-4">Login</Button>
-          </div>
+          </nav>
 
           <div className="-primaryInfo space-y-4">
             <div style={{ color: "white" }} className={`${inter.className}`}>

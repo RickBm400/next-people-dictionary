@@ -15,11 +15,16 @@ $nav_height: 48px
     padding: $global_padding
     height: $cont_height
 .landing
-    &__container
+    &__background
+        padding: 12px
+        filter: brightness(70%)
+        border-radius: 48px
+    &__content
         width: 100%
         height: calc($cont_height)
-        background: url("../public/images/coworking-image.png") no-repeat
-        background-size: cover
+        // background: url("../public/images/coworking-image.png") no-repeat
+        // background-size: cover
+        z-index: 1
         position: relative
         border-radius: 24px
         .-title
