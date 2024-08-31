@@ -16,10 +16,38 @@ export default function Home() {
       >
         <div className="landing__container">
           <div className="-title pt-2 pb-10 pl-2 pr-8">
-            <h1 className={michroma.className}>Coworking</h1>
+            <h1 className={michroma.className}>Cowork</h1>
             <div className="corners-1" />
             <div className="corners-2" />
           </div>
+
+          <div className="-nav flex items-center">
+            <ul className="flex space-x-16 items-center">
+              <li>Home</li>
+              <li>About</li>
+              <li>Contact</li>
+            </ul>
+            <Button className="capitalize ml-4">Login</Button>
+          </div>
+
+          <div className="-primaryInfo space-y-4">
+            <div style={{ color: "white" }} className={`${inter.className}`}>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+              sunt amet architecto sed similique vel quia quaerat, fuga
+              exercitationem ut consequuntur facere obcaecati odio iure
+              deserunt, aspernatur velit accusamus molestias.
+            </div>
+            <div>
+              <Button>Get Started</Button>
+            </div>
+          </div>
+
+          <h3 className={`-motto ${michroma.className}`}>
+            Find Better places and <br />
+            get rid of wasting time.
+          </h3>
+
+          <span className="-scrollDown">Scroll down</span>
         </div>
       </section>
       <section id="about" className="flex space-x-16 items-center">

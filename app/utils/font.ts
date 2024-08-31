@@ -10,5 +10,5 @@ export const michroma: NextFont = Michroma({
 export const inter: NextFont = Inter({
   subsets: ["latin"],
   display: "swap",
-  weight: "400",
+  weight: "300",
 });

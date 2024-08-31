@@ -7,8 +7,8 @@ $nav_height: 48px
     content: ''
     width: 40px
     height: 40px
-    background-color: transparent
     position: absolute
+    background-color: transparent
     box-shadow: $box-x $box-y 0 #ffffff
 
 #landing
@@ -20,11 +20,12 @@ $nav_height: 48px
         height: calc($cont_height)
         background: url("../public/images/coworking-image.png") no-repeat
         background-size: cover
+        position: relative
         border-radius: 24px
         .-title
             display: inline-block
             background-color: white
-            position: relative
+            position: absolute
             border-bottom-right-radius: 24px
             width: auto
             h1
@@ -41,6 +42,31 @@ $nav_height: 48px
                 bottom: -40px
                 left: 0
                 border-top-left-radius: 24px
+        .-primaryInfo
+            position: absolute
+            bottom: 24px
+            left: 24px
+            max-width: 600px
+        .-nav
+            position: absolute
+            right: 0
+            top: 0
+            color: white
+            padding: 24px
+        .-motto
+            position: absolute
+            right: 40px
+            top: 50%
+            transform: translateY(-50%)
+            color: white
+            font-size: 3rem
+        .-scrollDown
+            position: absolute
+            bottom: 24px
+            right: 48px
+            color: white
+            font-size: 12px
+
 #about
     height: $cont_height
     padding: 128px
