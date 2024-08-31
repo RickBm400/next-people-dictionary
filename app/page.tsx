@@ -6,7 +6,16 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import { Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import LoginCards from "./components/LogIn";
+
+const PersonButton = styled(Button)({
+  boxShadow: "none",
+  border: "1px solid white",
+  color: "white",
+  borderRadius: "14px",
+  paddingInline: "36px",
+});
 
 export default function Home() {
   return (
@@ -38,18 +47,45 @@ export default function Home() {
               <li>About</li>
               <li>Contact</li>
             </ul>
-            <Button className="capitalize ml-4">Login</Button>
+            {/* <Button
+              className="capitalize ml-4"
+              variant="outlined"
+              disableElevation
+            >
+              Login
+            </Button> */}
+            <PersonButton
+              className="ml-16"
+              disableRipple
+              disableFocusRipple
+              href="login"
+            >
+              <span
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "14px",
+                  textTransform: "capitalize",
+                }}
+              >
+                Log In
+              </span>
+            </PersonButton>
           </nav>
 
           <div className="-primaryInfo space-y-4">
-            <div style={{ color: "white" }} className={`${inter.className}`}>
+            <div
+              style={{ color: "white" }}
+              className={`${inter.className} mb-8`}
+            >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
               sunt amet architecto sed similique vel quia quaerat, fuga
               exercitationem ut consequuntur facere obcaecati odio iure
               deserunt, aspernatur velit accusamus molestias.
             </div>
             <div>
-              <Button>Get Started</Button>
+              <PersonButton disableFocusRipple disableRipple className="py-2">
+                Get Started
+              </PersonButton>
             </div>
           </div>
 
