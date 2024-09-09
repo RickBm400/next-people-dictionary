@@ -13,6 +13,7 @@ interface props {
   value: string;
   label: String;
   type: string;
+  name: string;
   handler: any;
   variant?: "standard" | "outlined" | "filled";
 }
@@ -39,8 +40,7 @@ function eyeButton(
             onMouseDown={handleMouseDownPassword}
             aria-label="toggle password visibility"
             edge="end"
-            onClick={handler}
-          >
+            onClick={handler}>
             {iconSwitch ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </InputAdornment>
@@ -56,6 +56,7 @@ function eyeButton(
 export default function TextFieldComp({
   value,
   label,
+  name,
   type = "text",
   handler,
   variant = "outlined",
@@ -71,13 +72,13 @@ export default function TextFieldComp({
         label={`${label}`}
         variant={`${variant}`}
         value={value}
+        name={name}
         onChange={handler}
         InputProps={{
           endAdornment: eyeButton(type, passwordEye, () =>
             setPasswordEye((val) => !val)
           ),
-        }}
-      ></TextField>
+        }}></TextField>
     </FormControl>
   );
 }

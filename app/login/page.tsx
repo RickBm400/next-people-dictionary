@@ -6,15 +6,38 @@ import TexFieldComps from "@/_globalComponents/textField";
 import "./login.sass";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  interface typenvalue {
+    type: string;
+    value: string;
+  }
+  const [loginCredentials, setLoginCredentials] = useState<
+    Record<string, typenvalue>
+  >({
+    email: {
+      type: "email",
+      value: "",
+    },
+    password: {
+      type: "password",
+      value: "",
+    },
+  });
 
-  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
+  function getArrayOfCredentials(array: object): Array<string> {
+    return Object.keys(array);
+  }
 
-  const handlePassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
+  const loginCredentialHandler = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = event.target;
+    setLoginCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [name]: {
+        ...prevCredentials[name],
+        value: value,
+      },
+    }));
   };
 
   async function _login() {
@@ -31,8 +54,7 @@ export default function Login() {
           <div className="login__info-background-title">
             <h1
               className={`${michroma.className}`}
-              style={{ fontWeight: "700" }}
-            >
+              style={{ fontWeight: "700" }}>
               Login
             </h1>
             <div className="corner-1"></div>
@@ -49,28 +71,22 @@ export default function Login() {
                 autoComplete="off"
                 item
                 xs={12}
-                className="space-y-6"
-              >
-                <TexFieldComps
-                  value={email}
-                  label="email"
-                  type="email"
-                  handler={handleEmail}
-                ></TexFieldComps>
-                <TexFieldComps
-                  value={password}
-                  label="Password"
-                  type="password"
-                  handler={handlePassword}
-                ></TexFieldComps>
+                className="space-y-6">
+                {getArrayOfCredentials(loginCredentials).map((field) => (
+                  <TexFieldComps
+                    value={loginCredentials[field].value}
+                    label="Password"
+                    name={field}
+                    type={loginCredentials[field].type}
+                    handler={loginCredentialHandler}></TexFieldComps>
+                ))}
                 <Button
                   fullWidth
                   variant="contained"
                   disableElevation
                   onClick={_login}
                   className={`${inter.className} capitalize font-[700]`}
-                  style={{ fontWeight: "800", backgroundColor: "#cccccc" }}
-                >
+                  style={{ fontWeight: "800", backgroundColor: "#cccccc" }}>
                   Login
                 </Button>
                 <div className="flex justify-between">
