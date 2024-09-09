@@ -11,7 +11,7 @@ export default function Login() {
     value: string;
   }
   // false > login; true > signup
-  const [isLogIn, setIsLogin] = useState<boolean>(false);
+  const [isLogIn, setIsLogin] = useState<boolean>(true);
   const [loginCredentials, setLoginCredentials] = useState<
     Record<string, typenvalue>
   >({
@@ -50,31 +50,49 @@ export default function Login() {
     },
   });
 
-  function getArrayOfCredentials(array: object): Array<string> {
+  function getArrayOfCredentials(array: object): string[] {
     return Object.keys(array);
   }
+
+  const formsStateCallback = ({ name, value }: any) => {
+    return (previousValue: any) => ({
+      ...previousValue,
+      [name]: {
+        ...previousValue[name],
+        value: value,
+      },
+    });
+  };
 
   const loginCredentialHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = event.target;
-    const modifyStateCallback = (prevCredentials: any) => ({
-      ...prevCredentials,
-      [name]: {
-        ...prevCredentials[name],
-        value: value,
-      },
-    });
     if (isLogIn) {
-      setLoginCredentials(modifyStateCallback);
+      setLoginCredentials(formsStateCallback({ name, value }));
     } else {
-      setSignUpCredentials(modifyStateCallback);
+      setSignUpCredentials(formsStateCallback({ name, value }));
     }
   };
 
+  function resetValueAtStates(
+    state: Record<string, typenvalue>,
+    stateFunction: React.Dispatch<
+      React.SetStateAction<Record<string, typenvalue>>
+    >
+  ) {
+    Object.keys(state).forEach((key) => {
+      stateFunction(formsStateCallback({ name: key, value: "" }));
+    });
+  }
+
   function _changeForm() {
+    resetValueAtStates(loginCredentials, setLoginCredentials);
+    resetValueAtStates(signUpCredentials, setSignUpCredentials);
     setIsLogin((prev) => !prev);
   }
+
+  const currentForm = isLogIn ? loginCredentials : signUpCredentials;
 
   async function _login() {
     try {
@@ -110,20 +128,16 @@ export default function Login() {
                 xs={12}
                 className="space-y-6"
               >
-                {((changeForm: boolean): any => {
-                  let formCursor = changeForm
-                    ? loginCredentials
-                    : signUpCredentials;
-                  return getArrayOfCredentials(formCursor).map((field) => (
-                    <TexFieldComps
-                      value={formCursor[field].value}
-                      label={field}
-                      name={field}
-                      type={formCursor[field].type}
-                      handler={loginCredentialHandler}
-                    ></TexFieldComps>
-                  ));
-                })(isLogIn)}
+                {getArrayOfCredentials(currentForm).map((field) => (
+                  <TexFieldComps
+                    key={field}
+                    value={currentForm[field].value}
+                    label={field}
+                    name={field}
+                    type={currentForm[field].type}
+                    handler={loginCredentialHandler}
+                  ></TexFieldComps>
+                ))}
                 <Button
                   fullWidth
                   variant="contained"
