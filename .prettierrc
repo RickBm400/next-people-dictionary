@@ -5,5 +5,5 @@
   "semi": true,
   "bracketSpacing": true,
   "endOfLine": "crlf",
-  "bracketSameLine": true
+  "bracketSameLine": false
 }

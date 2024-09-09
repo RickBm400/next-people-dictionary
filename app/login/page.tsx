@@ -11,7 +11,7 @@ export default function Login() {
     value: string;
   }
   // false > login; true > signup
-  const [togleForms, switchTogleForms] = useState<Boolean>(false);
+  const [isLogIn, setIsLogin] = useState<boolean>(false);
   const [loginCredentials, setLoginCredentials] = useState<
     Record<string, typenvalue>
   >({
@@ -58,14 +58,23 @@ export default function Login() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = event.target;
-    setSignUpCredentials((prevCredentials) => ({
+    const modifyStateCallback = (prevCredentials: any) => ({
       ...prevCredentials,
       [name]: {
         ...prevCredentials[name],
         value: value,
       },
-    }));
+    });
+    if (isLogIn) {
+      setLoginCredentials(modifyStateCallback);
+    } else {
+      setSignUpCredentials(modifyStateCallback);
+    }
   };
+
+  function _changeForm() {
+    setIsLogin((prev) => !prev);
+  }
 
   async function _login() {
     try {
@@ -81,8 +90,9 @@ export default function Login() {
           <div className="login__info-background-title">
             <h1
               className={`${michroma.className}`}
-              style={{ fontWeight: "700" }}>
-              Login
+              style={{ fontWeight: "700" }}
+            >
+              {isLogIn ? "login" : "sign up"}
             </h1>
             <div className="corner-1"></div>
             <div className="corner-2"></div>
@@ -98,27 +108,38 @@ export default function Login() {
                 autoComplete="off"
                 item
                 xs={12}
-                className="space-y-6">
-                {getArrayOfCredentials(signUpCredentials).map((field) => (
-                  <TexFieldComps
-                    value={signUpCredentials[field].value}
-                    label={field}
-                    name={field}
-                    type={signUpCredentials[field].type}
-                    handler={loginCredentialHandler}></TexFieldComps>
-                ))}
+                className="space-y-6"
+              >
+                {((changeForm: boolean): any => {
+                  let formCursor = changeForm
+                    ? loginCredentials
+                    : signUpCredentials;
+                  return getArrayOfCredentials(formCursor).map((field) => (
+                    <TexFieldComps
+                      value={formCursor[field].value}
+                      label={field}
+                      name={field}
+                      type={formCursor[field].type}
+                      handler={loginCredentialHandler}
+                    ></TexFieldComps>
+                  ));
+                })(isLogIn)}
                 <Button
                   fullWidth
                   variant="contained"
                   disableElevation
                   onClick={_login}
                   className={`${inter.className} capitalize font-[700]`}
-                  style={{ fontWeight: "800", backgroundColor: "#cccccc" }}>
-                  Login
+                  style={{ fontWeight: "800", backgroundColor: "#cccccc" }}
+                >
+                  {isLogIn ? "Log In" : "Continue"}
                 </Button>
                 <div className="flex justify-between">
-                  <a href="" className={`${inter.className} link`}>
-                    Create an Account
+                  <a
+                    className={`${inter.className} link`}
+                    onClick={_changeForm}
+                  >
+                    {isLogIn ? "Create an Account" : "Return to login"}
                   </a>
                   <a href="" className={`${inter.className} link`}>
                     Forgot password?
