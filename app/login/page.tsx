@@ -10,6 +10,8 @@ export default function Login() {
     type: string;
     value: string;
   }
+  // false > login; true > signup
+  const [togleForms, switchTogleForms] = useState<Boolean>(false);
   const [loginCredentials, setLoginCredentials] = useState<
     Record<string, typenvalue>
   >({
@@ -23,6 +25,31 @@ export default function Login() {
     },
   });
 
+  const [signUpCredentials, setSignUpCredentials] = useState<
+    Record<string, typenvalue>
+  >({
+    name: {
+      type: "text",
+      value: "",
+    },
+    last_name: {
+      type: "text",
+      value: "",
+    },
+    email: {
+      type: "email",
+      value: "",
+    },
+    password: {
+      type: "password",
+      value: "",
+    },
+    confirm_password: {
+      type: "password",
+      value: "",
+    },
+  });
+
   function getArrayOfCredentials(array: object): Array<string> {
     return Object.keys(array);
   }
@@ -31,7 +58,7 @@ export default function Login() {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = event.target;
-    setLoginCredentials((prevCredentials) => ({
+    setSignUpCredentials((prevCredentials) => ({
       ...prevCredentials,
       [name]: {
         ...prevCredentials[name],
@@ -72,12 +99,12 @@ export default function Login() {
                 item
                 xs={12}
                 className="space-y-6">
-                {getArrayOfCredentials(loginCredentials).map((field) => (
+                {getArrayOfCredentials(signUpCredentials).map((field) => (
                   <TexFieldComps
-                    value={loginCredentials[field].value}
-                    label="Password"
+                    value={signUpCredentials[field].value}
+                    label={field}
                     name={field}
-                    type={loginCredentials[field].type}
+                    type={signUpCredentials[field].type}
                     handler={loginCredentialHandler}></TexFieldComps>
                 ))}
                 <Button
