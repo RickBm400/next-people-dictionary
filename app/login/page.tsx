@@ -2,19 +2,22 @@
 import React, { useState } from "react";
 import { Box, Grid, Button } from "@mui/material";
 import { michroma, inter } from "@/utils/font";
+import Image from "next/image";
 import TexFieldComps from "@/_globalComponents/textField";
 import "./login.sass";
 
 export default function Login() {
-  interface typenvalue {
-    type: string;
-    value: string;
-  }
+  type formInterface = Record<
+    string,
+    {
+      type: string;
+      value: string;
+    }
+  >;
+
   // false > login; true > signup
   const [isLogIn, setIsLogin] = useState<boolean>(true);
-  const [loginCredentials, setLoginCredentials] = useState<
-    Record<string, typenvalue>
-  >({
+  const [loginCredentials, setLoginCredentials] = useState<formInterface>({
     email: {
       type: "email",
       value: "",
@@ -25,9 +28,7 @@ export default function Login() {
     },
   });
 
-  const [signUpCredentials, setSignUpCredentials] = useState<
-    Record<string, typenvalue>
-  >({
+  const [signUpCredentials, setSignUpCredentials] = useState<formInterface>({
     name: {
       type: "text",
       value: "",
@@ -76,10 +77,8 @@ export default function Login() {
   };
 
   function resetValueAtStates(
-    state: Record<string, typenvalue>,
-    stateFunction: React.Dispatch<
-      React.SetStateAction<Record<string, typenvalue>>
-    >
+    state: formInterface,
+    stateFunction: React.Dispatch<React.SetStateAction<formInterface>>
   ) {
     Object.keys(state).forEach((key) => {
       stateFunction(formsStateCallback({ name: key, value: "" }));
@@ -95,6 +94,7 @@ export default function Login() {
   const currentForm = isLogIn ? loginCredentials : signUpCredentials;
 
   async function _login() {
+    console.log(currentForm);
     try {
     } catch (error) {
       console.log();
@@ -105,6 +105,18 @@ export default function Login() {
     <main id="login" className="flex h-[100vh]">
       <section className="login__info w-[60%] h-screen grid ">
         <div className="login__info-background">
+          <Image
+            src="/images/coffe-cup.jpg"
+            alt="login"
+            objectFit="cover"
+            quality={100}
+            layout="fill"
+            style={{
+              zIndex: -1,
+              borderRadius: "24px",
+              filter: "brightness(80%)",
+            }}
+          />
           <div className="login__info-background-title">
             <h1
               className={`${michroma.className}`}
