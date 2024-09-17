@@ -7,7 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import LoginCards from "./components/LogIn";
+import UserTypeCards from "./components/UserTypeCards";
 import { useState } from "react";
 
 const PersonButton = styled(Button)({
@@ -58,7 +58,7 @@ export default function Home() {
             <div className="corners-1" />
             <div className="corners-2" />
           </div>
-
+          5
           <nav className="-nav flex items-center">
             <ul className="flex space-x-16 items-center">
               <li>Home</li>
@@ -89,7 +89,6 @@ export default function Home() {
               </span>
             </PersonButton>
           </nav>
-
           <div className="-primaryInfo space-y-4">
             <div
               style={{ color: "white" }}
@@ -106,12 +105,10 @@ export default function Home() {
               </PersonButton>
             </div>
           </div>
-
           <h3 className={`-motto ${michroma.className}`}>
             Find Better places and <br />
             get rid of wasting time.
           </h3>
-
           <span className="-scrollDown">Scroll down</span>
         </div>
       </section>
@@ -156,7 +153,7 @@ export default function Home() {
         </div>
         <div className="userTypes__cards h-full flex space-x-6">
           {userCards.map((card) => (
-            <LoginCards
+            <UserTypeCards
               key={card.userType}
               userType={card.userType}
               image={card.image}
