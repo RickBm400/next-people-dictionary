@@ -103,7 +103,7 @@ export default function Login() {
 
   return (
     <main id="login" className="flex h-[100vh]">
-      <section className="login__info w-[60%] h-screen grid ">
+      <section className="login__info w-[70%] h-screen grid ">
         <div className="login__info-background">
           <Image
             src="/images/coffe-cup.jpg"
@@ -122,14 +122,14 @@ export default function Login() {
               className={`${michroma.className}`}
               style={{ fontWeight: "700" }}
             >
-              {isLogIn ? "login" : "sign up"}
+              {isLogIn ? "Log In" : "sign up"}
             </h1>
             <div className="corner-1"></div>
             <div className="corner-2"></div>
           </div>
         </div>
       </section>
-      <section className="login__form w-[40%] h-screen grid  bg-white">
+      <section className="login__form w-[30%] h-screen grid  bg-white">
         <div className="login__form-div flex items-center justify-center">
           <Box>
             <Grid container spacing={2}>

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import LoginCards from "./components/LogIn";
+import { useState } from "react";
 
 const PersonButton = styled(Button)({
   boxShadow: "none",
@@ -16,6 +17,23 @@ const PersonButton = styled(Button)({
   borderRadius: "14px",
   paddingInline: "36px",
 });
+
+interface user_cards {
+  userType: string;
+  className?: string;
+  image: string;
+}
+
+const userCards: Readonly<Array<user_cards>> = [
+  {
+    userType: "MEMBER",
+    image: "/images/single-user.jpg",
+  },
+  {
+    userType: "ORGANIZATION",
+    image: "/images/coffe-shop.jpg",
+  },
+];
 
 export default function Home() {
   return (
@@ -125,20 +143,24 @@ export default function Home() {
       <section id="userTypes" className="flex flex-col">
         <div className="userTypes__header pb-9">
           <h2 className={`userTypes__header--title ${michroma.className}`}>
-            READY TO JOIN US?{" "}
+            READY TO JOIN US?
           </h2>
           <p
             className={`userTypes__header--description ${inter.className} w-[60%]`}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quasi
-            cum libero voluptates modi odio eligendi delectus quas laborum
-            dolorum dicta ab voluptatum molestias aperiam, cupiditate quia omnis
-            optio iste.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
+            ullam aliquid, maiores voluptates provident quasi exercitationem
+            commodi accusantium, a suscipit consequuntur eveniet! Repellendus
+            corporis fugiat quis iure porro quas est?
           </p>
         </div>
         <div className="userTypes__cards h-full flex space-x-6">
-          {["member", "organization"].map((cardId) => (
-            <LoginCards key={cardId} user={cardId} />
+          {userCards.map((card) => (
+            <LoginCards
+              key={card.userType}
+              userType={card.userType}
+              image={card.image}
+            />
           ))}
         </div>
       </section>
