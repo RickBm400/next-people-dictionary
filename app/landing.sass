@@ -71,21 +71,42 @@ $nav_height: 48px
             right: 36px
             color: white
             font-size: 12px
+#short_description
+    width: 100%
+    height: 400px
+    padding: 24px
+    .card
+        border-radius: 12px
+        display: flex
+        align-items: center
+        color: black
+        padding-inline: 18px
+        text-align: center
+        height: 100%
+        font-size: 2.25rem
 
 #about
     height: $cont_height
-    padding: 128px
-.about
-    &__info
-        width: 40%
-        height: 90%
-        &--title
-            font-size: 6rem
-        &--content
-            font-size: 12px
-    &__scroller
-        width: 60%
-        height: 90%
+    padding: 24px
+    .about
+        &__container
+            position: relative
+            width: 100%
+            border-radius: 24px
+            padding: $global_padding
+            height: 100%
+            background-color: gray
+// .about
+//     &__info
+//         width: 30%
+//         height: 100%
+//         &--title
+//             font-size: 6rem
+//         &--content
+//             font-size: 12px
+//     &__scroller
+//         width: 70%
+//         height: 100%
 
 #userTypes
     height: 100vh
@@ -93,7 +114,8 @@ $nav_height: 48px
 .userTypes
     &__header
         &--title
-            font-size: 6rem
+            line-height: 7rem
+            font-size: 7rem
             font-weight: bold
         &--description
             font-size: 12px

@@ -112,8 +112,19 @@ export default function Home() {
           <span className="-scrollDown">Scroll down</span>
         </div>
       </section>
-      <section id="about" className="flex space-x-16 items-center">
-        <div className="about__info flex flex-col">
+      <section id="short_description">
+        <div className={`card ${michroma.className}`}>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            fugit enim, reiciendis cum voluptate aspernatur ratione nulla
+            dolores aut, vel excepturi doloribus ad quia saepe perferendis modi
+            nisi quidem cumque.
+          </p>
+        </div>
+      </section>
+      <section id="about" className="flex space-x-16 items-center relative">
+        <div className="about__container">olamundo</div>
+        {/* <div className="about__info flex flex-col">
           <h2 className={`about__info--title mb-auto ${michroma.className}`}>
             About
           </h2>
@@ -135,12 +146,15 @@ export default function Home() {
               className={"flex-1 rounded-[12px] h-[100%]"}
             ></ContentCards>
           ))}
-        </div>
+        </div> */}
       </section>
       <section id="userTypes" className="flex flex-col">
-        <div className="userTypes__header pb-9">
-          <h2 className={`userTypes__header--title ${michroma.className}`}>
-            READY TO JOIN US?
+        <div className="userTypes__header pb-9 flex flex-row">
+          <h2
+            className={`userTypes__header--title basis-2/3 ${michroma.className}`}
+          >
+            READY TO <br />
+            JOIN US?
           </h2>
           <p
             className={`userTypes__header--description ${inter.className} w-[60%]`}
@@ -161,8 +175,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section id="user__types"></section>
-      <footer id="footer">footerItem</footer>
+      {/* <footer id="footer">footerItem</footer> */}
     </main>
   );
 }

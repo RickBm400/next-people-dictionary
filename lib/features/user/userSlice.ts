@@ -1,14 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import exp from "constants";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: { value: any } = {
-  value: {}
-}
+  value: {},
+};
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
-  reducers: {}
-})
+  reducers: {},
+});
 
-export default userSlice.reducer
+export default userSlice.reducer;

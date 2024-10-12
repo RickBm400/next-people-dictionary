@@ -30,13 +30,13 @@ export default function UserTypeCards({ userType, className, image }: Props) {
         quality={100}
         className="card-image"
       />
-      <div className="relative"></div>
-      <div className="card__bottom-text flex relative mt-auto z-10">
-        <p className="w-[50%]">
+      {/* <div className="relative"></div> */}
+      <div className="card__bottom-text flex  justify-between mt-auto z-10 w-[100%]">
+        <p className="basis-2/3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
           voluptatum.
         </p>
-        <ActionButton>olamundo</ActionButton>
+        <ActionButton>Login</ActionButton>
       </div>
     </Card>
   );
