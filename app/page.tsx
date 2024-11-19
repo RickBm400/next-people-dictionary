@@ -1,6 +1,6 @@
 "use client";
 import "./landing.sass";
-import { michroma, inter } from "./utils/font";
+import { MICHROMA, INTER } from "./utils/font";
 import ContentCards from "@/components/ContentCards";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -37,7 +37,7 @@ const userCards: Readonly<Array<user_cards>> = [
 
 export default function Home() {
   return (
-    <main id="home-page" className={`${inter.className}`}>
+    <main id="home-page" className={`${INTER.className}`}>
       <section
         id="landing"
         className="flex justify-center flex-col items-center"
@@ -54,7 +54,7 @@ export default function Home() {
 
         <div className="landing__content">
           <div className="-title pt-2 pb-10 pl-2 pr-8">
-            <h1 className={michroma.className}>Cowork</h1>
+            <h1 className={MICHROMA.className}>Cowork</h1>
             <div className="corners-1" />
             <div className="corners-2" />
           </div>
@@ -92,7 +92,7 @@ export default function Home() {
           <div className="-primaryInfo space-y-4">
             <div
               style={{ color: "white" }}
-              className={`${inter.className} mb-8`}
+              className={`${INTER.className} mb-8`}
             >
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia
               sunt amet architecto sed similique vel quia quaerat, fuga
@@ -105,7 +105,7 @@ export default function Home() {
               </PersonButton>
             </div>
           </div>
-          <h3 className={`-motto ${michroma.className}`}>
+          <h3 className={`-motto ${MICHROMA.className}`}>
             Find Better places and <br />
             get rid of wasting time.
           </h3>
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
       <section id="short_description">
-        <div className={`card ${michroma.className}`}>
+        <div className={`card ${MICHROMA.className}`}>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
             fugit enim, reiciendis cum voluptate aspernatur ratione nulla
@@ -122,10 +122,11 @@ export default function Home() {
           </p>
         </div>
       </section>
-      <section id="about" className="flex space-x-16 items-center relative">
-        <div className="about__container">olamundo</div>
+      <section id="about" className="flex space-x-8 items-center relative">
+        <div className="about__container w-[45%]">olamundo</div>
+        <div className="about__container w-[55%]">olamundo</div>
         {/* <div className="about__info flex flex-col">
-          <h2 className={`about__info--title mb-auto ${michroma.className}`}>
+          <h2 className={`about__info--title mb-auto ${MICHROMA.className}`}>
             About
           </h2>
           <p className="about__info--content">
@@ -151,13 +152,13 @@ export default function Home() {
       <section id="userTypes" className="flex flex-col">
         <div className="userTypes__header pb-9 flex flex-row">
           <h2
-            className={`userTypes__header--title basis-2/3 ${michroma.className}`}
+            className={`userTypes__header--title basis-2/3 ${MICHROMA.className}`}
           >
             READY TO <br />
             JOIN US?
           </h2>
           <p
-            className={`userTypes__header--description ${inter.className} w-[60%]`}
+            className={`userTypes__header--description basis-1/3 ${INTER.className} self-end w-[60%]`}
           >
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
             ullam aliquid, maiores voluptates provident quasi exercitationem
