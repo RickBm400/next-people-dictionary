@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { Box, Grid, Button } from "@mui/material";
-import { michroma, inter } from "@/utils/font";
+import { MICHROMA, INTER } from "@/utils/font";
+import axios from "@plugins";
 import Image from "next/image";
 import TexFieldComps from "@/_globalComponents/textField";
 import "./login.sass";
@@ -51,12 +52,20 @@ export default function Login() {
     },
   });
 
+  const currentForm = isLogIn ? loginCredentials : signUpCredentials;
+
   function getArrayOfCredentials(array: object): string[] {
     return Object.keys(array);
   }
 
+  /**
+   * Update the form object in state with only the given key
+   * @param {Object} credential - form credential
+   * @param {String} credential.name - form key tag to update
+   * @param {String} credential.value - value to update from credential
+   */
   const formsStateCallback = ({ name, value }: any) => {
-    return (previousValue: any) => ({
+    return (previousValue: formInterface) => ({
       ...previousValue,
       [name]: {
         ...previousValue[name],
@@ -64,6 +73,12 @@ export default function Login() {
       },
     });
   };
+
+  function formatRequestData(formData: formInterface) {
+    return Object.keys(formData).reduce((accum, keyElem) => {
+      return { ...accum, [keyElem]: formData[keyElem].value };
+    }, {});
+  }
 
   const loginCredentialHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -91,11 +106,15 @@ export default function Login() {
     setIsLogin((prev) => !prev);
   }
 
-  const currentForm = isLogIn ? loginCredentials : signUpCredentials;
-
   async function _login() {
-    console.log(currentForm);
+    const URL = isLogIn ? "/user/login" : "/user/create-user";
     try {
+      let response = await axios.axios({
+        method: "POST",
+        url: URL,
+        data: formatRequestData(currentForm),
+      });
+      console.log(response);
     } catch (error) {
       console.log();
     }
@@ -119,10 +138,10 @@ export default function Login() {
           />
           <div className="login__info-background-title">
             <h1
-              className={`${michroma.className}`}
+              className={`${MICHROMA.className}`}
               style={{ fontWeight: "700" }}
             >
-              {isLogIn ? "Log In" : "sign up"}
+              {isLogIn ? "Log In" : "Sign up"}
             </h1>
             <div className="corner-1"></div>
             <div className="corner-2"></div>
@@ -155,19 +174,19 @@ export default function Login() {
                   variant="contained"
                   disableElevation
                   onClick={_login}
-                  className={`${inter.className} capitalize font-[700]`}
+                  className={`${INTER.className} capitalize font-[700]`}
                   style={{ fontWeight: "800", backgroundColor: "#cccccc" }}
                 >
                   {isLogIn ? "Log In" : "Continue"}
                 </Button>
                 <div className="flex justify-between">
                   <a
-                    className={`${inter.className} link`}
+                    className={`${INTER.className} link`}
                     onClick={_changeForm}
                   >
                     {isLogIn ? "Create an Account" : "Return to login"}
                   </a>
-                  <a href="" className={`${inter.className} link`}>
+                  <a href="" className={`${INTER.className} link`}>
                     Forgot password?
                   </a>
                 </div>

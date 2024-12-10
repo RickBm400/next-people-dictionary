@@ -123,33 +123,27 @@ export default function Home() {
         </div>
       </section>
       <section id="about" className="flex space-x-8 items-center relative">
-        <div className="about__container w-[45%]">olamundo</div>
-        <div className="about__container w-[55%]">olamundo</div>
-        {/* <div className="about__info flex flex-col">
-          <h2 className={`about__info--title mb-auto ${MICHROMA.className}`}>
-            About
-          </h2>
-          <p className="about__info--content">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit minus
-            incidunt magni eos saepe ab possimus aspernatur, quam ad similique
-            asperiores perspiciatis laborum repellat officia. Fuga omnis itaque
-            ipsa quidem. <br /> <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus impedit culpa, aspernatur ratione quas vel, repellat,
-            expedita possimus ducimus quis omnis voluptate. Odit atque quis qui
-            molestias, natus accusamus! Eos?
+        <div className="about_container_left container-1 w-[35%]">
+          <Image
+            style={{ borderRadius: "24px", zIndex: -1 }}
+            src="/images/coworking-image.png"
+            alt="back"
+            objectFit="cover"
+            quality={100}
+            layout="fill"
+          />
+        </div>
+        <div className="about_container_right w-[65%]">
+          <h1 className={`${MICHROMA.className} header-1`}>Michroma Fonts</h1>
+          <p className={`${INTER.className}`}>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            autem maxime dolorem id corporis commodi? Harum officia eaque,
+            accusantium error facere odio eum, dignissimos rerum exercitationem
+            odit nostrum iste animi.
           </p>
         </div>
-        <div className="about__scroller flex space-x-6 items-end ">
-          {[1, 2, 3].map((numer) => (
-            <ContentCards
-              key={numer}
-              className={"flex-1 rounded-[12px] h-[100%]"}
-            ></ContentCards>
-          ))}
-        </div> */}
       </section>
-      <section id="userTypes" className="flex flex-col">
+      {/* <section id="userTypes" className="flex flex-col">
         <div className="userTypes__header pb-9 flex flex-row">
           <h2
             className={`userTypes__header--title basis-2/3 ${MICHROMA.className}`}
@@ -175,7 +169,7 @@ export default function Home() {
             />
           ))}
         </div>
-      </section>
+      </section> */}
       {/* <footer id="footer">footerItem</footer> */}
     </main>
   );
