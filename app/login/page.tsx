@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Box, Grid, Button } from "@mui/material";
 import { MICHROMA, INTER } from "@/utils/font";
 import axios from "@plugins";
@@ -8,6 +10,7 @@ import TexFieldComps from "@/_globalComponents/textField";
 import "./login.sass";
 
 export default function Login() {
+  const { push } = useRouter();
   type formInterface = Record<
     string,
     {
@@ -114,9 +117,13 @@ export default function Login() {
         url: URL,
         data: formatRequestData(currentForm),
       });
-      console.log(response);
+      console.log("logged response");
+      console.log(JSON.stringify(response));
+      if (response.status == 200) {
+        push("/dashboard"); // receive status 200
+      }
     } catch (error) {
-      console.log();
+      console.log(error);
     }
   }
 

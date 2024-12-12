@@ -4,7 +4,6 @@ import {
   InputAdornment,
   IconButton,
 } from "@mui/material";
-import { inter, michroma } from "@/utils/font";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import React, { useState } from "react";
 
@@ -40,7 +39,8 @@ function eyeButton(
             onMouseDown={handleMouseDownPassword}
             aria-label="toggle password visibility"
             edge="end"
-            onClick={handler}>
+            onClick={handler}
+          >
             {iconSwitch ? <Visibility /> : <VisibilityOff />}
           </IconButton>
         </InputAdornment>
@@ -78,7 +78,8 @@ export default function TextFieldComp({
           endAdornment: eyeButton(type, passwordEye, () =>
             setPasswordEye((val) => !val)
           ),
-        }}></TextField>
+        }}
+      ></TextField>
     </FormControl>
   );
 }
